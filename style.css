@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #282828;
+  color: #ffffff;
+}
+
+.calendar {
+  background-color: #110b0d;
+  overflow: hidden;
+  width: 350px;
+  height: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #444444;
+  padding: 10px;
+  height: 72px;
+  gap: 0;
+}
+
+.header .month-year {
+  display: flex;
+  align-items: left;
+  gap: 5px;
+  width: 250px;
+  height: 30px;
+  font-size: 20px;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.header div:hover {
+  background-color: #666;
+}
+
+.calendar button {
+  background-color: #555;
+  width: 30px;
+  height: 30px;
+  color: white;
+  /* border: none; */
+  border-radius: 5px;
+}
+button.prev {
+  border: none;
+  background: none;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+}
+
+button.prev:hover {
+  background-color: #666;
+}
+
+button.next {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+}
+
+button.next:hover {
+  background-color: #666;
+}
+.weekdays,
+.calendar-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar-body .date,
+.calendar-body .day-of-week {
+  width: 14.28%;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #110b0d;
+}
+
+.calendar-body .month-of-year {
+  width: 25%;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.calendar-body div {
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.calendar-body div:hover {
+  background-color: #3d3b3b;
+}
+
+.calendar-body .today,
+.calendar-body .this-month {
+  background-color: #ee2c6c;
+  color: #110b0d;
+}
+
+.calendar-body .selected {
+  background-color: #110b0d;
+  border: 1px solid #ee2c6d;
+  color: #ee2c6c;
+}
+
+.today.selected {
+  box-shadow: inset 0 0 0 1px black;
+  background-color: #ee2c6c;
+  color: #110b0d;
+  border: #ee2c6c solid 1px;
+}
+
+.prev-date {
+  color: #505050;
+}
+
+.next-date {
+  color: #505050;
+}
+
+
+.month-display {
+  font-size: 20px;
+}
+
+.year-display {
+  font-size: 20px;
+}
+
+.year-display-only {
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+
+.calendar-body .year-of-decade {
+  width: 25%; 
+  text-align: center;
+  padding: 35px 25px;
+  font-size: 18px; 
+}
+
+.highlight-year {
+  background-color: #ee2c6c;
+  color: #110b0d;
+}
+
+.highlight-month {
+  background-color: #ee2c6c;
+  color: #110b0d;
+}
+
+
+.year-range {
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer {
+  background-color: #444444;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  bottom: 0;
+  height: 40px;
+  font-family: sans-serif;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position:absolute;
+  top: 86%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 350px;
+  border-radius: 5px;
+}
+
+#current-date-time {
+  color: #ee2c6d;
+  border-radius: 5px;
+}
+
+
+#toggle-calendar {
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: #555;
+  width: 50px;
+  height: 30px;
+}
+
+#toggle-calendar:hover {
+  background-color: #666;
+  border: 1px solid #ee2c6d;
+}
+
+.hidden {
+  display: none;
+}
