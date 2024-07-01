@@ -291,5 +291,6 @@ updateDateTime();
 document.getElementById('toggle-calendar').addEventListener('click', () => {
   const calendar = document.getElementById('calendar01');
   calendar.classList.toggle('hidden');
+  console.log("hello world")
 });
 
