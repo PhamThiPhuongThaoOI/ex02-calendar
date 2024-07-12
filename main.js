@@ -13,12 +13,12 @@ const CALENDAR_BODY_TYPE = {
 };
 let calendarBodyType = CALENDAR_BODY_TYPE.DATE;
 
-
 // Thêm các phần tử month-display và year-display vào month-year
-const monthDisplay = document.createElement('span');
-monthDisplay.classList.add('month-display');
-const yearDisplay = document.createElement('span');
-yearDisplay.classList.add('year-display');
+
+const monthDisplay = document.createElement("span");
+monthDisplay.classList.add("month-display");
+const yearDisplay = document.createElement("span");
+yearDisplay.classList.add("year-display");
 
 monthYear.appendChild(monthDisplay);
 monthYear.appendChild(yearDisplay);
@@ -39,16 +39,17 @@ function getMonth() {
     "Dec",
   ];
 
-  
   btnMonths = [];
 
   for (let i = 0; i < months.length; i++) {
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
     btnMonths.push(
-      `<div class="${currentYear === selectedDate.getFullYear() && currentMonth === i? "this-month highlight-month" : ""} month-of-year">${
-        months[i]
-      }</div>`
+      `<div class="${
+        currentYear === selectedDate.getFullYear() && currentMonth === i
+          ? "this-month highlight-month"
+          : ""
+      } month-of-year">${months[i]}</div>`
     );
   }
 
@@ -61,22 +62,19 @@ function getDate() {
   const month = selectedDate.toLocaleString("en", { month: "long" });
   const year = selectedDate.getFullYear();
 
-
   if (calendarBodyType === CALENDAR_BODY_TYPE.DATE) {
     monthDisplay.textContent = month;
     yearDisplay.textContent = year;
   } else if (calendarBodyType === CALENDAR_BODY_TYPE.MONTH) {
-    monthDisplay.textContent = '';
+    monthDisplay.textContent = "";
     yearDisplay.textContent = year;
   } else if (calendarBodyType === CALENDAR_BODY_TYPE.YEAR) {
     const startYear = Math.floor(year / 10) * 10;
     const endYear = startYear + 9;
-    monthDisplay.textContent = '';
+    monthDisplay.textContent = "";
     yearDisplay.textContent = `${startYear}-${endYear}`;
   }
-  
 
-  
   const lastDay = new Date(
     selectedDate.getFullYear(),
     selectedDate.getMonth() + 1,
@@ -136,7 +134,9 @@ function getYears() {
 
   for (let i = startYear; i < startYear + 10; i++) {
     years.push(
-      `<div class="${i === currentYear ? "this-year highlight-year" : ""} year-of-decade">${i}</div>`
+      `<div class="${
+        i === currentYear ? "this-year highlight-year" : ""
+      } year-of-decade">${i}</div>`
     );
   }
   return years;
@@ -146,8 +146,8 @@ function renderCalendar() {
   if (calendarBodyType === CALENDAR_BODY_TYPE.DATE) {
     daysContainer.innerHTML = getDate().join("");
   } else if (calendarBodyType === CALENDAR_BODY_TYPE.MONTH) {
-    console.log(getMonth())
-    daysContainer.innerHTML= ''
+    console.log(getMonth());
+    daysContainer.innerHTML = "";
     daysContainer.innerHTML = getMonth().join("");
   } else if (calendarBodyType === CALENDAR_BODY_TYPE.YEAR) {
     daysContainer.innerHTML = getYears().join("");
@@ -168,38 +168,37 @@ function updateHeader() {
     monthDisplay.textContent = month;
     yearDisplay.textContent = year;
   } else if (calendarBodyType === CALENDAR_BODY_TYPE.MONTH) {
-    monthDisplay.textContent = '';
+    monthDisplay.textContent = "";
     yearDisplay.textContent = year;
   } else if (calendarBodyType === CALENDAR_BODY_TYPE.YEAR) {
     const startYear = Math.floor(year / 10) * 10;
     const endYear = startYear + 9;
-    monthDisplay.textContent = '';
+    monthDisplay.textContent = "";
     yearDisplay.textContent = `${startYear}-${endYear}`;
   }
-
 }
 
 function removeOldHighlights() {
-  const oldHighlightMonth = daysContainer.querySelector('.highlight-month');
-  const oldHighlightYear = daysContainer.querySelector('.highlight-year');
-  if (oldHighlightMonth) oldHighlightMonth.classList.remove('highlight-month');
-  if (oldHighlightYear) oldHighlightYear.classList.remove('highlight-year');
+  const oldHighlightMonth = daysContainer.querySelector(".highlight-month");
+  const oldHighlightYear = daysContainer.querySelector(".highlight-year");
+  if (oldHighlightMonth) oldHighlightMonth.classList.remove("highlight-month");
+  if (oldHighlightYear) oldHighlightYear.classList.remove("highlight-year");
 }
 
 function addNewHighlight() {
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
-  
+
   if (calendarBodyType === CALENDAR_BODY_TYPE.MONTH) {
-    const monthElements = daysContainer.querySelectorAll('.month-of-year');
-    if(year == currentYear) {
-      monthElements[currentMonth].classList.add('highlight-month');
+    const monthElements = daysContainer.querySelectorAll(".month-of-year");
+    if (year == currentYear) {
+      monthElements[currentMonth].classList.add("highlight-month");
     }
   } else if (calendarBodyType === CALENDAR_BODY_TYPE.YEAR) {
-    const yearElements = daysContainer.querySelectorAll('.year-of-decade');
-    yearElements.forEach(yearElement => {
+    const yearElements = daysContainer.querySelectorAll(".year-of-decade");
+    yearElements.forEach((yearElement) => {
       if (parseInt(yearElement.textContent) === currentYear) {
-        yearElement.classList.add('highlight-year');
+        yearElement.classList.add("highlight-year");
       }
     });
   }
@@ -238,7 +237,6 @@ monthYear.addEventListener("click", () => {
   renderCalendar();
 });
 
-
 renderCalendar();
 daysContainer.addEventListener("click", (e) => {
   const isClickOnDateButton = e.target.className.split(" ").includes("date");
@@ -251,20 +249,30 @@ daysContainer.addEventListener("click", (e) => {
 
     e.target.classList.add("selected");
   }
-
-
 });
 daysContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains('month-of-year')) {
+  if (e.target.classList.contains("month-of-year")) {
     removeOldHighlights();
     const selectedMonth = e.target.textContent;
-    const monthIndex = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].indexOf(selectedMonth);
+    const monthIndex = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ].indexOf(selectedMonth);
 
     selectedDate.setMonth(monthIndex);
     calendarBodyType = CALENDAR_BODY_TYPE.DATE;
     renderCalendar();
-
-  } else if (e.target.classList.contains('year-of-decade')) {
+  } else if (e.target.classList.contains("year-of-decade")) {
     removeOldHighlights();
     const selectedYear = parseInt(e.target.textContent);
 
@@ -277,19 +285,25 @@ daysContainer.addEventListener("click", (e) => {
 renderCalendar();
 
 function updateDateTime() {
-  const dateTimeElement = document.getElementById('current-date-time');
+  const dateTimeElement = document.getElementById("current-date-time");
   const now = new Date();
-  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-  dateTimeElement.textContent = now.toLocaleDateString('en-VN', options);
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+  dateTimeElement.textContent = now.toLocaleDateString("en-VN", options);
 }
 
 // Gọi hàm updateDateTime mỗi giây
 setInterval(updateDateTime, 1000);
 
-updateDateTime(); 
+updateDateTime();
 
-document.getElementById('toggle-calendar').addEventListener('click', () => {
-  const calendar = document.getElementById('calendar01');
-  calendar.classList.toggle('hidden');
+document.getElementById("toggle-calendar").addEventListener("click", () => {
+  const calendar = document.getElementById("calendar01");
+  calendar.classList.toggle("hidden");
 });
-

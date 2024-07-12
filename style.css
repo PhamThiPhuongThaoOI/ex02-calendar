@@ -137,7 +137,6 @@ button.next:hover {
   color: #505050;
 }
 
-
 .month-display {
   font-size: 20px;
 }
@@ -152,12 +151,11 @@ button.next:hover {
   width: 100%;
 }
 
-
 .calendar-body .year-of-decade {
-  width: 25%; 
+  width: 25%;
   text-align: center;
   padding: 35px 25px;
-  font-size: 18px; 
+  font-size: 18px;
 }
 
 .highlight-year {
@@ -169,7 +167,6 @@ button.next:hover {
   background-color: #ee2c6c;
   color: #110b0d;
 }
-
 
 .year-range {
   font-size: 20px;
@@ -189,10 +186,10 @@ button.next:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position:absolute;
+  position: absolute;
   top: 86%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 350px;
   border-radius: 5px;
 }
@@ -201,7 +198,6 @@ button.next:hover {
   color: #ee2c6d;
   border-radius: 5px;
 }
-
 
 #toggle-calendar {
   color: #ee2c6d;
@@ -217,10 +213,9 @@ button.next:hover {
 }
 
 #toggle-calendar:hover {
-  background-color: #ee2c6d ;
+  background-color: #ee2c6d;
   box-shadow: 0 0 20px #ee2c6d;
   color: #fff;
-
 }
 
 .hidden {
